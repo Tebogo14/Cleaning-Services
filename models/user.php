@@ -1,4 +1,6 @@
 <?php
+require 'models/connect.php';
+
 class User {
     
     public $username;
@@ -12,16 +14,15 @@ class User {
 
     	public static function find($username,$password) {
 
-            
 	      	$list = array();
       		$db = Db::getInstance();
-	  	$sql = "SELECT username, Role FROM customer, WHERE username = '$username' AND user_password='$password'";
+	  		$sql = "SELECT `cust_username`, `Role` FROM customer WHERE `cust_username` = '$username' AND `cust_password` ='$password'";
 		
-	  	$req = $db->query($sql);
-		$i=0;
+	  		$req = $db->query($sql);
+			$i=0;
       		
          	foreach ($req->fetchAll() as $user) {
-        		$list[] = new User($user['username'], $user['role']);
+        		$list[] = new User($user['cust_username'], $user['Role']);
 			$i++;
         	}
         	if ($i>0)

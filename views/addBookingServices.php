@@ -11,7 +11,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <form class="needs-validation" novalidate action="createNewBooking" method="POST">
+                                    <form class="needs-validation" action="./service?act=update" method="POST">
                                         <div class="input-group mb-3">
 
                                             <select class="custom-select" name="serviceType" id="serviceType">

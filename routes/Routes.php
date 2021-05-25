@@ -1,10 +1,13 @@
 <?php
-
 require_once('Route.php');
 require_once('View.php');
 
 Route::set('', function() {
-  View::make('Home');
+  View::make('LoginController');
+});
+
+Route::set('home', function() {
+  View::make('HomeController');
 });
 
 Route::set('about-us', function() {
@@ -12,7 +15,7 @@ Route::set('about-us', function() {
 });
 
 Route::set('service', function() {
-  View::make('addBookingServices');
+  View::make('addBookingServicesController');
 });
 
 Route::set('report', function() {

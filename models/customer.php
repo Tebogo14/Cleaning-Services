@@ -1,5 +1,7 @@
 <?php
 
+require 'models/connect.php';
+
 class Customer{
 	public $cust_id;
 	public $name;

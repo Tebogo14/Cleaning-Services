@@ -35,7 +35,12 @@
 <body>
     <div class="wrapper">
         <div class="main-panel">
+
             <?php
+            session_start();
+            
+            if(isset($_SESSION['username']))
+            {
             require_once( './layout/navbar.php' );
             ?>
             <div class="content">
@@ -44,9 +49,19 @@
                 require_once( './routes/Routes.php' );
 
                   function __autoload($class_name) {
+
                     require_once './controllers/'.$class_name.'.php';
                 }
-
+            }
+            else{
+                require_once( './_Globals.php' );
+                require_once( './routes/Routes.php' );
+                
+                  function __autoload($class_name) {
+                    
+                    require_once './controllers/'.$class_name.'.php';
+                }
+            }
                 ?>
             </div>
         </div>

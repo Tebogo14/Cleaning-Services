@@ -946,6 +946,14 @@ pre code {
   margin-left: auto;
 }
 
+.container-fluid-login {
+  width: 100%;
+  padding-right: 300px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;

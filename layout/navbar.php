@@ -15,15 +15,7 @@
             <span class="navbar-toggler-icon icon-bar"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form class="navbar-form">
-                <div class="input-group no-border">
-                    <input type="text" value="" class="form-control" placeholder="Search...">
-                    <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                        <i class="material-icons">search</i>
-                        <div class="ripple-container"></div>
-                    </button>
-                </div>
-            </form>
+        <h4><strong>Welcome  <?php echo $_SESSION['username']." as [".$_SESSION['role']."]"; ?></strong></h4>
         </div>
     </div>
 </nav>
@@ -34,9 +26,36 @@
         </a>
     </div>
     <div class="sidebar-wrapper">
+        <?php
+
+        if($_SESSION['role'] != "customer")
+        {
+        ?>
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="./">
+                <a class="nav-link" href="home">
+                    <i class="material-icons">home</i>
+                    <p>Home</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about-us">
+                    <i class="material-icons">people</i>
+                    <p>Users</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="service">
+                    <i class="material-icons">event</i>
+                    <p>Open Service Request</p>
+                </a>
+            </li>
+        </ul>
+        <?php }else{
+            ?>
+                    <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="home">
                     <i class="material-icons">home</i>
                     <p>Home</p>
                 </a>
@@ -72,5 +91,7 @@
                 </a>
             </li>
         </ul>
+        <?php }
+            ?>
     </div>
 </div>
