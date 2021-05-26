@@ -6,6 +6,10 @@ Route::set('', function() {
   View::make('LoginController');
 });
 
+Route::set('register', function() {
+  View::make('RegisterController');
+});
+
 Route::set('home', function() {
   View::make('HomeController');
 });

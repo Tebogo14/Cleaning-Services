@@ -26,7 +26,7 @@
                                 </div>
                                 <br>
                                 <p class="text-center">
-                                    Not yet a member?<a href="registerPage.php"> Sign up</a>
+                                    Not yet a member?<a href="register"> Sign up</a>
                                 </p>
                             </form>
                         </div>

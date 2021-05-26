@@ -23,8 +23,8 @@ class LoginController{
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $_SESSION['username'] = User::Find($username,$password)->username;
-        $_SESSION['role'] = User::Find($username,$password)->role;
+        $_SESSION['username'] = User::login($username,$password)->username;
+        $_SESSION['role'] = User::login($username,$password)->role;
  
          header('Location:home');
         

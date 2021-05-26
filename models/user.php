@@ -5,14 +5,18 @@ class User {
     
     public $username;
     public $role;
-   
+	public $firstName;
+	public $lastName;
+	public $contact;
+	public $Email;
+
     	public function __construct($username, $role) {
 		
       		$this->username  = $username;
       		$this->role  = $role;
     	}
 
-    	public static function find($username,$password) {
+    	public static function login($username,$password) {
 
 	      	$list = array();
       		$db = Db::getInstance();
@@ -30,6 +34,19 @@ class User {
 	  	else
 			return false;
     	}
+
+		public static function Register($firstName,$lastName,$contact,$Email,$username,$password){
+			$db = Db::getInstance();
+			$sql = "INSERT INTO `customer`(`cust_name`, `cust_surname`, `cust_email`, `cust_username`, `cust_password`, `cust_contact_nr` ,`Role`) VALUES ('$firstName','$lastName','$Email','$username','$password','$contact','customer')";
+			$req = $db->query($sql);
+			
+			if($req)
+			{
+				return User::login($username,$password);
+			}
+
+		}
+
 }  
 
 ?>
