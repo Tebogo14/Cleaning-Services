@@ -1,3 +1,6 @@
+<?php 
+
+?>
 
     <div class="content">
         <div class="container-fluid">
@@ -13,9 +16,14 @@
                                 <div class="row">
                                     <form class="needs-validation" action="./service?act=update" method="POST">
                                         <div class="input-group mb-3">
-
                                             <select class="custom-select" name="serviceType" id="serviceType">
                                                 <option selected disabled>Select A Service Type</option>
+                                                <?php
+                                                foreach($list as $service)
+                                                {
+                                                    echo "<option value = ".$service->id.">".$service->type."  [R".$service->price."]</option>";
+                                                }
+                                                ?>
                                             </select>
                                         </div>
                                         <div class="row">
@@ -63,6 +71,12 @@
                                                 <select class="custom-select" name="province" id="serviceType" required
                                                     style=" margin-top: 10%;">
                                                     <option selected disabled>Select A Provinces</option>
+                                                    <?php
+                                                        foreach($province as $prov)
+                                                        {
+                                                            echo "<option value = ".$prov->proviceId.">".$prov->proviceName."</option>";
+                                                        }
+                                                    ?>
                                                 </select>
                                             </div>
                                         </div>

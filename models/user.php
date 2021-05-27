@@ -27,12 +27,19 @@ class User {
       		
          	foreach ($req->fetchAll() as $user) {
         		$list[] = new User($user['cust_username'], $user['Role']);
+
+				print_r($list);
 			$i++;
         	}
         	if ($i>0)
-			return $list[0];  
+			{
+			print_r($list[0]);
+			return $list[0];
+			} 
 	  	else
+		  {
 			return false;
+		  }
     	}
 
 		public static function Register($firstName,$lastName,$contact,$Email,$username,$password){

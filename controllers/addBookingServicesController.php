@@ -1,6 +1,9 @@
 <?php
 
 
+require 'models/service.php';
+require 'models/province.php';
+
 class AddBookingServicesController {
 
     public function mvcHandler() 
@@ -26,17 +29,14 @@ class AddBookingServicesController {
 
     public function update()
     {
-        $cust_id;
-        $name;
-        $surname;
-        $username;
-        $password;
-        $contact;
-        //Customer::addBookingServices();
+        
     }
 
     public function list(){
-                            
+         $list = Service:: getServiceList();
+         $province = Province::getProvices();
+         
+         require_once("views/addBookingServices.php");
     }
 
 }
