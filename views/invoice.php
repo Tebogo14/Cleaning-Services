@@ -8,35 +8,37 @@
                 <br>
             </div>
             <div class="card-body">
-                <table class="table">
+            <table class="table">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">Invoice Number</th>
                             <th scope="col">Service Type</th>
                             <th scope="col">Service Date</th>
+                            <th scope="col">Invoice amount</th>
                             <th scope="col text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php while($row = mysqli_fetch_assoc($result)){ ?>
-                      <form acton="" method="POST">
+                         <?php foreach($invoice as $inv){ ?> 
                         <tr>
                             <td>
-                                <?php echo $row['invoice_no']; ?>
+                                <?php echo $inv->invoice_no ?>
                             </td>
                             <td>
-                                <?php echo $row['service_type']; ?>
+                                <?php echo $inv->service_type?>
                             </td>
                             <td>
-                                <?php echo $row['custService_date']; ?>
+                                <?php echo $inv->custService_date ?>
                             </td>
                             <td>
-                                <button type="submit" name="delete" value="<?= $row['invoice_no']?>" class="btn btn-danger col-md-6"
-                                    >Cancel</button>
+                                <?php echo "R".$inv->custService_amount ?>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-info col-md-10" onclick="location.href = 'singleInvoice?InvoiceNo=<?=$inv->invoice_no?>'"
+                                    >View Full Detail</button>
                                 <?php } ?>
                             </td>
                         </tr>
-                      </form>
                     </tbody>
                 </table>
             </div>

@@ -61,12 +61,6 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="about-us">
-                    <i class="material-icons">business</i>
-                    <p>About Us</p>
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="service">
                     <i class="material-icons">event</i>
                     <p>Service Request</p>

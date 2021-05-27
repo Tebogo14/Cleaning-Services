@@ -14,8 +14,12 @@ Route::set('home', function() {
   View::make('HomeController');
 });
 
-Route::set('about-us', function() {
-  View::make('AboutUs');
+Route::set('singleInvoice', function() {
+  View::make('SingleInvoiceController');
+});
+
+Route::set('payInvoice', function() {
+  View::make('payInvoiceController');
 });
 
 Route::set('service', function() {
@@ -27,11 +31,11 @@ Route::set('report', function() {
 });
 
 Route::set('invoice', function() {
-  View::make('AboutUs');
+  View::make('InvoiceController');
 });
 
 Route::set('my-list', function() {
-  View::make('AboutUs');
+  View::make('mylistController');
 });
 
 ?>

@@ -26,7 +26,7 @@ class LoginController{
         $_SESSION['username'] = User::login($username,$password)->username;
         $_SESSION['role'] = User::login($username,$password)->role;
  
-        // header('Location:home');
+        header('Location:home');
         
     }
 

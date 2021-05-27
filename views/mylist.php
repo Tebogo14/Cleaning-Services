@@ -3,12 +3,12 @@
         <div class="card">
             <div class="card-header">
                 <br>
-                <h1>Invoice Details</h1>
+                <h1>Service Request Details</h1>
                 <small>This are all you request that have been made.</small>
                 <br>
             </div>
             <div class="card-body">
-                <table class="table">
+            <table class="table">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">Invoice Number</th>
@@ -18,20 +18,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php while($row = mysqli_fetch_assoc($result)){ ?>
-                      <form acton="" method="POST">
+                        <?php foreach($invoice as $inv){ ?> 
                         <tr>
+                        <form action="?act=delete" method="POST">
                             <td>
-                                <?php echo $row['invoice_no']; ?>
+                                <?php echo $inv->invoice_no ?>
                             </td>
                             <td>
-                                <?php echo $row['service_type']; ?>
+                                <?php echo $inv->service_type?>
                             </td>
                             <td>
-                                <?php echo $row['custService_date']; ?>
+                                <?php echo $inv->custService_date ?>
                             </td>
                             <td>
-                                <button type="submit" name="delete" value="<?= $row['invoice_no']?>" class="btn btn-danger col-md-6"
+                                <button type="submit" name="delete" value="<?= $inv->invoice_no?>" class="btn btn-danger col-md-6"
                                     >Cancel</button>
                                 <?php } ?>
                             </td>
