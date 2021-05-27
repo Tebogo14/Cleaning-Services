@@ -21,6 +21,8 @@ class mylistController  {
     public function delete()
     {
         Invoice::delete();
+        $invoice = Invoice::getInvoice();
+        require_once("views/mylist.php");
     }
 
 

@@ -50,7 +50,7 @@ class Invoice{
 		$inv_no = $_POST['delete'];
 
 		$qry = "DELETE FROM `customerservice` WHERE `invoice_no` = $inv_no";
-		$db->query($query);
+		$db->query($qry);
 	}
 
 }
