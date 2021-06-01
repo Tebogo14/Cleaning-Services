@@ -22,60 +22,46 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php while($row = mysqli_fetch_assoc($result)){ ?>
-                                        <form acton="" method="POST">
+                                        <?php foreach($list as $service){
+                                            ?>
+                                        <form action="?act=update" method="POST">
                                             <tr>
                                                 <td>
                                                     <input hidden name="serviceId"
-                                                        value="<?=$row['custService_id']?>" />
-                                                    <?php echo $row['custService_date']; ?>
+                                                        value="<?=$service->srv_id;?>" />
+                                                    <?php echo $service->custService_date; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $row['custService_size']; ?>
+                                                    <?php echo $service->custService_size; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $row['service_type']; ?>
+                                                    <?php echo $service->service_type; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo "R".$row['custService_amount']; ?>
+                                                    <?php echo "R".$service->custService_amount; ?>
                                                 </td>
                                                 <td>
                                                     <div class="form-group col-md-12">
+                                                    <?php
+                                                    if($service->TeamId == 0)
+                                                    {
+                                                    ?>
+                                                    <select class="custom-select" name="team" id="serviceType">
+                                                        <option selected disabled>Select a Team</option>
                                                         <?php
-                            if($row['team_id'] == 0)
-                            {
-                            ?>
-                                                        <select class="custom-select" name="team" id="serviceType">
-                                                            <option selected disabled>Select a Team</option>
-                                                            <?php
-                                    $serv_sql = "SELECT * FROM `cleaningTeam`";
-                                    $serv_query = mysqli_query($conn,$serv_sql);
-                                    
-                                    while($row = $serv_query->fetch_assoc())
-                                    {
-                                        $teamName = $row['team_name'];
-                                        $teamId = $row['team_id'];
-                                        echo "<option value = '$teamId'>$teamName</option>";
-                                    }
-                            }
-                            else
-                            {
-                                ?>
-                                                        </select>
-                                                        <?php
-
-                                    $teamId = $row['team_id'];
-                                    if($teamId != null)
-                                    {
-                                    $serv_sql1 = "SELECT * FROM `cleaningTeam` where `team_id` = '$teamId'";
-                                    $serv_query1 = mysqli_query($conn,$serv_sql1);
-                                    }
-                                    while($row = $serv_query1->fetch_assoc())
-                                    {
-                                        echo $row['team_name'];
-                                    }
-                                }
-                            ?>
+                                                            foreach($team as $teams)
+                                                            {
+                                                                echo "<option value = '$teams->TeamId'>$teams->TeamName</option>";
+                                                            }
+                                                    }
+                                                    else
+                                                    {
+                                                        ?>
+                                                    </select>
+                                                    <?php
+                                                     echo $service->TeamName;
+                                                    }
+                                                    ?>
                                                     </div>
                                                 <td>
                                                     <button type="submit" name="delete"
@@ -83,7 +69,7 @@
                                                 <td>
                                             </tr>
                                         </form>
-                                        <?php } ?>
+                                         <?php } ?>
                                     </tbody>
                                 </table>
                             </div>

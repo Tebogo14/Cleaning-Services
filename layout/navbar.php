@@ -27,7 +27,6 @@
     </div>
     <div class="sidebar-wrapper">
         <?php
-
         if($_SESSION['role'] != "customer")
         {
         ?>
@@ -39,13 +38,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="about-us">
+                <a class="nav-link" href="user">
                     <i class="material-icons">people</i>
                     <p>Users</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="service">
+                <a class="nav-link" href="assignTeam">
                     <i class="material-icons">event</i>
                     <p>Open Service Request</p>
                 </a>
@@ -53,7 +52,7 @@
         </ul>
         <?php }else{
             ?>
-                    <ul class="nav">
+        <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link" href="home">
                     <i class="material-icons">home</i>

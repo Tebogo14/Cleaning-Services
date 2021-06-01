@@ -42,6 +42,8 @@ class Invoice{
 			$invoices[] = new Invoice($invoice['service_type'],$invoice['custService_date'],$invoice['invoice_no'],$invoice['custService_amount']);
 		}
 
+		print_r($invoices);
+
 		return $invoices;
 	}
 
@@ -52,7 +54,6 @@ class Invoice{
 		$qry = "DELETE FROM `customerservice` WHERE `invoice_no` = $inv_no";
 		$db->query($qry);
 	}
-
 }
 
 ?>

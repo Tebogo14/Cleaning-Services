@@ -10,10 +10,14 @@ class User {
 	public $contact;
 	public $Email;
 
-    	public function __construct($username, $role) {
+    	public function __construct($username, $role ,$firstname,$lastName,$contact,$Email) {
 		
       		$this->username  = $username;
       		$this->role  = $role;
+			$this->firstname  = $firstname;
+      		$this->lastName  = $lastName;
+			$this->contact  = $contact;
+      		$this->Email  = $Email;
     	}
 
     	public static function login($username,$password) {
@@ -26,14 +30,11 @@ class User {
 			$i=0;
       		
          	foreach ($req->fetchAll() as $user) {
-        		$list[] = new User($user['cust_username'], $user['Role']);
-
-				print_r($list);
+        		$list[] = new User($user['cust_username'], $user['Role'] , "" , "", "", "" );
 			$i++;
         	}
         	if ($i>0)
 			{
-			print_r($list[0]);
 			return $list[0];
 			} 
 	  	else
@@ -53,6 +54,31 @@ class User {
 			}
 
 		}
+
+		public static function GetUsers()
+		{
+			$list = array();
+			$db = Db::getInstance();
+			$sql = "SELECT * FROM customer WHERE `role` = 'customer'";
+	  
+			$req = $db->query($sql);
+
+			foreach ($req->fetchAll() as $user) {
+        		$list[] = new User($user['cust_username'], $user['Role'] , $user['cust_name'] , $user['cust_surname'], $user['cust_contact_nr'], $user['cust_email'] );
+        	}
+
+			print_r($list);
+
+			return $list;
+		}
+
+		public static function Delete($username)
+		{
+			$db = Db::getInstance();
+			$sql = "DELETE FROM `customer` WHERE cust_username = '$username'";
+			$req = $db->query($sql);
+		}
+
 
 }  
 

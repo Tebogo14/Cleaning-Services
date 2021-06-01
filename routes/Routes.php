@@ -14,6 +14,15 @@ Route::set('home', function() {
   View::make('HomeController');
 });
 
+Route::set('user', function() {
+  View::make('UserController');
+});
+
+Route::set('assignTeam', function() {
+  View::make('assignTeamController');
+});
+
+
 Route::set('singleInvoice', function() {
   View::make('SingleInvoiceController');
 });
